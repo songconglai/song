@@ -1,0 +1,68 @@
+﻿@model GameInterface.WebAPI.Models.VOUser
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>用户注册</title>
+    <link href="@Url.Content("~/Content/Logon/style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body class="login" style="text-align:center;">
+    
+    <div class="loginArea">
+        <h2>用户注册</h2>
+        <div class="">
+            @{    
+                string msg = "";
+                if (ViewBag.Message != null)
+                {
+                    msg = (string)ViewBag.Message;
+                }
+              
+                <div class="loginBoxIn" style="height: 20px">
+                    &nbsp;
+                    <label style="color: red">@msg</label>
+                </div>     
+                
+            }
+
+            @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { id = "vForm" }))
+            {                
+                <div class="loginBoxIn">
+                    <div class="loginLineUser">
+                        <span href="#" class="loginTitle">用户名</span> @Html.TextBoxFor(model => model.UserName, new { @class = "loginInput2"})
+                    </div>
+                    <div class="loginLinePassword">
+                        <span href="#" class="loginTitle">密&nbsp;&nbsp;&nbsp;码</span>
+                        @Html.PasswordFor(model => model.Password, new { @class = "loginInput2" })
+                    </div>
+                    <div class="loginLinePassword">
+                        <span href="#" class="loginTitle">确认密码</span>
+                        @Html.PasswordFor(model => model.RePassword, new { @class = "loginInput2" })
+                    </div>
+                    <div class="loginLinePassword">
+                        <span href="#" class="loginTitle">邮&nbsp;&nbsp;&nbsp;箱</span>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "loginInput2" })
+                    </div>
+                    <div class="loginButtonArea">
+                       <div class="fl font999">
+                            &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("现在登录","Index")
+                        </div>
+                        <div class="fr">
+                            <input type="submit" value="注册" id="subBtn" class="loginButton" />
+                        </div>
+                    </div>
+                    <!-- loginButtonArea -->
+                </div>
+                <!-- loginBoxIn -->
+            }
+        </div>
+        <!-- loginBox -->
+    </div>
+    <!-- loginArea -->
+</body>
+</html>

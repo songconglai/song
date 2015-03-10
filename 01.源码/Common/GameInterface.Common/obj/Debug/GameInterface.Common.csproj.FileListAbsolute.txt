@@ -1,0 +1,10 @@
+E:\gitwork\GameInterface\03.开发\01.源码\Common\GameInterface.Common\bin\Debug\GameInterface.Common.dll
+E:\gitwork\GameInterface\03.开发\01.源码\Common\GameInterface.Common\bin\Debug\GameInterface.Common.pdb
+E:\gitwork\GameInterface\03.开发\01.源码\Common\GameInterface.Common\obj\Debug\GameInterface.Common.csprojResolveAssemblyReference.cache
+E:\gitwork\GameInterface\03.开发\01.源码\Common\GameInterface.Common\obj\Debug\GameInterface.Common.dll
+E:\gitwork\GameInterface\03.开发\01.源码\Common\GameInterface.Common\obj\Debug\GameInterface.Common.pdb
+D:\workspace\01.源码\Common\GameInterface.Common\bin\Debug\GameInterface.Common.dll
+D:\workspace\01.源码\Common\GameInterface.Common\bin\Debug\GameInterface.Common.pdb
+D:\workspace\01.源码\Common\GameInterface.Common\obj\Debug\GameInterface.Common.csprojResolveAssemblyReference.cache
+D:\workspace\01.源码\Common\GameInterface.Common\obj\Debug\GameInterface.Common.dll
+D:\workspace\01.源码\Common\GameInterface.Common\obj\Debug\GameInterface.Common.pdb

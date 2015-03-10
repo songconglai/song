@@ -1,0 +1,34 @@
+﻿@model List<GameInterface.Domain.Model.LoginUser>
+@{
+    ViewBag.Title = "UserList";
+}
+
+<h2>用户管理</h2>
+
+
+<table class="table">
+    <tr>
+        <td>用户名</td>
+        <td>邮箱</td>
+        <td>类型</td>
+        <td>注册时间</td>
+        <td>操作</td>
+    </tr>
+    @{
+        bool flag = false;
+        foreach (GameInterface.Domain.Model.LoginUser item in Model)
+        {
+            flag = !flag;
+            <tr class="@(flag?"even":"odd")">
+                <td>@item.UserName</td>
+                <td>@item.Email</td>
+                <td>@item.Type</td>
+                <td>@item.CreateTime</td>
+                <td>@Html.ActionLink("编辑", "EditeUser", "Login", new{ loginUser=@item})
+                    &nbsp;
+                    @Html.ActionLink("删除", "EditeUser", "Login", new{ id=@item.ID})
+                </td>
+            </tr>
+        }
+        }
+</table>

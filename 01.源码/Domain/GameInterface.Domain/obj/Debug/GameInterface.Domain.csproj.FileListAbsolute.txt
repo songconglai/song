@@ -1,0 +1,10 @@
+E:\gitwork\GameInterface\03.开发\01.源码\Domain\GameInterface.Domain\bin\Debug\GameInterface.Domain.dll
+E:\gitwork\GameInterface\03.开发\01.源码\Domain\GameInterface.Domain\bin\Debug\GameInterface.Domain.pdb
+E:\gitwork\GameInterface\03.开发\01.源码\Domain\GameInterface.Domain\obj\Debug\GameInterface.Domain.dll
+E:\gitwork\GameInterface\03.开发\01.源码\Domain\GameInterface.Domain\obj\Debug\GameInterface.Domain.pdb
+E:\gitwork\GameInterface\03.开发\01.源码\Domain\GameInterface.Domain\obj\Debug\GameInterface.Domain.csprojResolveAssemblyReference.cache
+D:\workspace\01.源码\Domain\GameInterface.Domain\bin\Debug\GameInterface.Domain.dll
+D:\workspace\01.源码\Domain\GameInterface.Domain\bin\Debug\GameInterface.Domain.pdb
+D:\workspace\01.源码\Domain\GameInterface.Domain\obj\Debug\GameInterface.Domain.csprojResolveAssemblyReference.cache
+D:\workspace\01.源码\Domain\GameInterface.Domain\obj\Debug\GameInterface.Domain.dll
+D:\workspace\01.源码\Domain\GameInterface.Domain\obj\Debug\GameInterface.Domain.pdb

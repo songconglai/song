@@ -1,0 +1,5 @@
+E:\gitwork\GameInterface\03.开发\01.源码\Core\GameInterface.JsonModel\bin\Debug\GameInterface.JsonModel.dll
+E:\gitwork\GameInterface\03.开发\01.源码\Core\GameInterface.JsonModel\bin\Debug\GameInterface.JsonModel.pdb
+E:\gitwork\GameInterface\03.开发\01.源码\Core\GameInterface.JsonModel\obj\Debug\GameInterface.JsonModel.csprojResolveAssemblyReference.cache
+E:\gitwork\GameInterface\03.开发\01.源码\Core\GameInterface.JsonModel\obj\Debug\GameInterface.JsonModel.dll
+E:\gitwork\GameInterface\03.开发\01.源码\Core\GameInterface.JsonModel\obj\Debug\GameInterface.JsonModel.pdb
