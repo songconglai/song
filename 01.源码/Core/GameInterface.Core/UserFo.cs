@@ -101,7 +101,7 @@ namespace GameInterface.Core
             {
                 List<LoginUser> users = new List<LoginUser>();
                 var list = from o in context.LoginUsers
-                           where o.Status == UserStatus.正常.ToString()
+                           where o.Status == UserStatus.正常.ToString() || o.Status == UserStatus.禁用.ToString()
                            orderby o.CreateTime descending
                            select o;
                 if (list.Count() > 0)
@@ -122,6 +122,22 @@ namespace GameInterface.Core
             {
                 LoginUser user = context.LoginUsers.SingleOrDefault(m => m.ID == new Guid(id));
                 return user;
+            }
+        }
+
+        public static string ModifyUser(LoginUser user)
+        {
+            using (GameInterfaceDbContext context = new GameInterfaceDbContext())
+            {
+                LoginUser userL = context.LoginUsers.SingleOrDefault(m => m.ID == user.ID);
+                userL.Type = user.Type;
+                userL.Status = user.Status;
+                int i = context.SaveChanges();
+                if (i > 0)
+                {
+                    return "更新成功";
+                }
+                return "更新失败";
             }
         }
     }

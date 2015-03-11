@@ -11,6 +11,7 @@
         <td>用户名</td>
         <td>邮箱</td>
         <td>类型</td>
+        <td>状态</td>
         <td>注册时间</td>
         <td>操作</td>
     </tr>
@@ -23,10 +24,9 @@
                 <td>@item.UserName</td>
                 <td>@item.Email</td>
                 <td>@item.Type</td>
+                <td>@item.Status</td>
                 <td>@item.CreateTime</td>
-                <td>@Html.ActionLink("编辑", "EditeUser", "Login", new{ loginUser=@item})
-                    &nbsp;
-                    @Html.ActionLink("删除", "EditeUser", "Login", new{ id=@item.ID})
+                <td>@Html.ActionLink("编辑", "EditeUser", new{ id=item.ID.ToString()})
                 </td>
             </tr>
         }

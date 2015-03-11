@@ -159,8 +159,15 @@ namespace GameInterface.WebAPI.WebControllers
         public ActionResult EditeUser(string id) 
         {
             LoginUser loginUser = UserFo.GetUser(id);
-
+            
             return View(loginUser);
+        }
+
+        [HttpPost]
+        public ActionResult EditeUser(LoginUser user)
+        {
+            ViewBag.Message =  UserFo.ModifyUser(user);;
+            return View(user);
         }
     }
 }

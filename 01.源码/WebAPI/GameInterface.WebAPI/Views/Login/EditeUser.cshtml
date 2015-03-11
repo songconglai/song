@@ -4,3 +4,54 @@
 }
 
 <h2>用户编辑</h2>
+
+@{    
+    string msg = "";
+    if (ViewBag.Message != null)
+    {
+        msg = (string)ViewBag.Message;
+    }
+              
+    <div class="loginBoxIn" style="height: 20px">
+        &nbsp;
+                    <label style="color: red">@msg</label>
+    </div>     
+                
+}
+
+@using (Html.BeginForm("EditeUser", "Login", FormMethod.Post, new { id = "vForm" }))
+{
+    @Html.HiddenFor(modle => modle.ID)@Html.HiddenFor(modle => modle.UserName)@Html.HiddenFor(modle => modle.Email)@Html.HiddenFor(modle => modle.CreateTime)
+    <table class="table table-bordered table-hover definewidth m10">
+        <tr>
+            <td width="10%" class="tableleft">登录名</td>
+            <td>@Html.DisplayTextFor(model => model.UserName)</td>
+        </tr>
+        <tr>
+            <td class="tableleft">邮箱</td>
+            <td>@Html.DisplayTextFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td class="tableleft">类型</td>
+            <td>
+                @Html.DropDownListFor(model => model.Type, new List<SelectListItem> { new SelectListItem() { Text = "普通用户", Value = "普通用户" }, new SelectListItem() { Text = "管理员", Value = "管理员" } })
+            </td>
+        </tr>
+        <tr>
+            <td class="tableleft">状态</td>
+            <td>
+                @Html.DropDownListFor(model => model.Status, new List<SelectListItem> { new SelectListItem() { Text = "正常", Value = "正常" }, new SelectListItem() { Text = "禁用", Value = "禁用" }, new SelectListItem() { Text = "删除", Value = "删除" }, })
+            </td>
+        </tr>
+        <tr>
+            <td class="tableleft">创建时间</td>
+            <td>@Html.DisplayTextFor(model => model.CreateTime)</td>
+        </tr>
+        <tr>
+            <td class="tableleft"></td>
+            <td>
+                <button type="submit" class="btn btn-primary">保存</button>
+            </td>
+        </tr>
+    </table>
+}
