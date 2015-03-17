@@ -150,9 +150,11 @@ namespace GameInterface.WebAPI.WebControllers
         /// 用户管理列表
         /// </summary>
         /// <returns></returns>
-        public ActionResult UserList() 
+        public ActionResult UserList(int? pageSize, int? pageIndex) 
         {
-            List<LoginUser> userList =  UserFo.UserList();
+            int pageSizeI = pageSize ?? 1;
+            int pageIndexI = pageIndex ?? 5;
+            PagerQuery<PagerInfo, List<LoginUser>> userList = UserFo.UserList(pageSizeI, pageIndexI);
             return View(userList);
         }
 

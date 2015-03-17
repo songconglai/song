@@ -112,6 +112,29 @@ namespace GameInterface.Core
             }
         }
 
+        public static PagerQuery<PagerInfo, List<LoginUser>> UserList(int pageSizeI, int pageIndexI)
+        {
+            using (GameInterfaceDbContext context = new GameInterfaceDbContext())
+            {
+                PagerInfo pageInfo = new PagerInfo();
+                
+                List<LoginUser> users = new List<LoginUser>();
+
+                pageInfo.CurrentPageIndex = pageIndexI;
+                pageInfo.RecordCount = context.LoginUsers.Count(m => m.Status == UserStatus.正常.ToString() || m.Status == UserStatus.禁用.ToString());
+
+                var list = (from o in context.LoginUsers
+                           where o.Status == UserStatus.正常.ToString() || o.Status == UserStatus.禁用.ToString()
+                           orderby o.CreateTime descending
+                           select o).Skip((pageSizeI-1)*pageIndexI).Take(pageSizeI);
+                if (list.Count() > 0)
+                {
+                    users.AddRange(list);
+                }
+                PagerQuery<PagerInfo, List<LoginUser>> query = new PagerQuery<PagerInfo, List<LoginUser>>(pageInfo, users);
+                return query;
+            }
+        }
 
         public static LoginUser GetUser(string id)
         {
@@ -140,5 +163,7 @@ namespace GameInterface.Core
                 return "更新失败";
             }
         }
+
+       
     }
 }

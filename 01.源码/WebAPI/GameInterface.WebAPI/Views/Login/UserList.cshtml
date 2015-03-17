@@ -1,4 +1,5 @@
-﻿@model List<GameInterface.Domain.Model.LoginUser>
+﻿
+@model GameInterface.Core.PagerQuery<GameInterface.Core.PagerInfo,List<GameInterface.Domain.Model.LoginUser>> 
 @{
     ViewBag.Title = "UserList";
 }
@@ -17,7 +18,7 @@
     </tr>
     @{
         bool flag = false;
-        foreach (GameInterface.Domain.Model.LoginUser item in Model)
+        foreach (GameInterface.Domain.Model.LoginUser item in Model.EntityList)
         {
             flag = !flag;
             <tr class="@(flag?"even":"odd")">
@@ -26,9 +27,17 @@
                 <td>@item.Type</td>
                 <td>@item.Status</td>
                 <td>@item.CreateTime</td>
-                <td>@Html.ActionLink("编辑", "EditeUser", new{ id=item.ID.ToString()})
+                <td>@Html.ActionLink("编辑", "EditeUser", new { id = item.ID.ToString() }, new { target="_blank"})
+                    &nbsp;@Html.ActionLink("删除", "EditeUser", new { id = item.ID.ToString() })
                 </td>
             </tr>
         }
+        <tr class="">
+                             <td colspan="5" align="center" class="paginator">
+                                 <span>
+                                     @Html.ShowPageNavigate(Model.Pager.CurrentPageIndex, Model.Pager.PageSize, Model.Pager.RecordCount)
+                                 </span>
+                             </td>
+                         </tr>
         }
 </table>
