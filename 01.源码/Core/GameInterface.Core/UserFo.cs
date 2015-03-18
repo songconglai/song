@@ -93,7 +93,10 @@ namespace GameInterface.Core
                 return NameOrEmailIsExist.不存在;
             }
         }
-
+        /// <summary>
+        /// 获取所有用户列表
+        /// </summary>
+        /// <returns></returns>
         public static List<LoginUser> UserList()
         {
 
@@ -111,7 +114,12 @@ namespace GameInterface.Core
                 return users;
             }
         }
-
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="pageSizeI">每页显示数量</param>
+        /// <param name="pageIndexI">当前页码</param>
+        /// <returns></returns>
         public static PagerQuery<PagerInfo, List<LoginUser>> UserList(int pageSizeI, int pageIndexI)
         {
             using (GameInterfaceDbContext context = new GameInterfaceDbContext())
@@ -119,14 +127,14 @@ namespace GameInterface.Core
                 PagerInfo pageInfo = new PagerInfo();
                 
                 List<LoginUser> users = new List<LoginUser>();
-
+                pageInfo.PageSize = pageSizeI;
                 pageInfo.CurrentPageIndex = pageIndexI;
                 pageInfo.RecordCount = context.LoginUsers.Count(m => m.Status == UserStatus.正常.ToString() || m.Status == UserStatus.禁用.ToString());
 
                 var list = (from o in context.LoginUsers
                            where o.Status == UserStatus.正常.ToString() || o.Status == UserStatus.禁用.ToString()
                            orderby o.CreateTime descending
-                           select o).Skip((pageSizeI-1)*pageIndexI).Take(pageSizeI);
+                            select o).Skip((pageIndexI - 1) * pageSizeI).Take(pageSizeI);
                 if (list.Count() > 0)
                 {
                     users.AddRange(list);
@@ -135,7 +143,11 @@ namespace GameInterface.Core
                 return query;
             }
         }
-
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static LoginUser GetUser(string id)
         {
             if (string.IsNullOrEmpty(id)) { 
@@ -147,7 +159,11 @@ namespace GameInterface.Core
                 return user;
             }
         }
-
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static string ModifyUser(LoginUser user)
         {
             using (GameInterfaceDbContext context = new GameInterfaceDbContext())
